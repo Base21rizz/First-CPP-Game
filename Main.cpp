@@ -2,13 +2,19 @@
 int main()
 {
     // Window dimensions
-    int width{350};
-    int height{200};
+    int width{800};
+    int height{450};
     InitWindow(width, height, "Axe");
 
     // Circle Coordinates
-    int circle_x{175};
-    int circle_y{100};
+    int circle_x{200};
+    int circle_y{200};
+
+    // Axe Coordinates
+    int axe_x{400};
+    int axe_y{0};
+
+    int direction{10};
 
     SetTargetFPS(60);
     while (WindowShouldClose() == false)
@@ -19,11 +25,20 @@ int main()
         // Game Logic Start
 
         DrawCircle(circle_x, circle_y, 25, BLUE);
-        if (IsKeyDown(KEY_D))
+        DrawRectangle(axe_x, axe_y, 50, 50, RED);
+
+        // Move the axe
+        axe_y += direction;
+        if (axe_y > 450 || axe_y < 0)
+        {
+            direction = -direction;
+        }
+
+        if (IsKeyDown(KEY_D) && circle_x < 350)
         {
             circle_x += 10;
         }
-        if (IsKeyDown(KEY_A))
+        if (IsKeyDown(KEY_A) && circle_x > 0)
         {
             circle_x -= 10;
         }
