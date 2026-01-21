@@ -1,6 +1,5 @@
-#include <cstdio>
+#include "raylib.h"
 int main()
 {
-    printf("Hello my name is Shoumik Islam!\n");
-    printf("Lemon is goated");
+    InitWindow(350, 200, "Axe");
 }
